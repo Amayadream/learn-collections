@@ -1,5 +1,4 @@
 rootProject.name = 'learn-collections'
-include 'redis'
 include 'learn-redis'
 include 'common-utils'
 
