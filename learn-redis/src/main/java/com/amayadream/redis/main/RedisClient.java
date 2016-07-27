@@ -157,6 +157,7 @@ public class RedisClient {
 //        set("Amayadream", s);
         SimpleObject object = new SimpleObject("Amayadream", "hello, Amayadream");
 //        set("message", object);
+        System.out.println(String.valueOf(get("message")));
         object = null;
         object = get("message", SimpleObject.class);
         System.out.println(JSON.toJSONString(object));
