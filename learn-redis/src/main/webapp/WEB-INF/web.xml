@@ -11,7 +11,6 @@
         <param-value>classpath:spring/spring-mongodb.xml;classpath:spring/spring-redis.xml</param-value>
     </context-param>
 
-    <!-- 可以使用RequestContextHolder.currentRequestAttributes() 获取到请求的attr -->
     <listener>
         <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
     </listener>

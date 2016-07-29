@@ -30,7 +30,7 @@
                 write-fsync="true"/>
     </mongo:mongo>
 
-    <mongo:db-factory dbname="database" mongo-ref="mongo" />
+    <mongo:db-factory dbname="${mongo.name}" mongo-ref="mongo" />
 
     <mongo:mapping-converter id="mongoConverter" />
 
