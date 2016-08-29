@@ -38,6 +38,7 @@
         </property>
     </bean>
 
+    <!-- 启用缓存注解 -->
     <cache:annotation-driven />
 
     <!-- redis缓存管理器 -->
