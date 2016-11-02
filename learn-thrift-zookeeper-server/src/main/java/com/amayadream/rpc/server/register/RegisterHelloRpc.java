@@ -37,10 +37,10 @@ public class RegisterHelloRpc implements Watcher {
 
     private void checkServerName() throws KeeperException, InterruptedException {
         Stat stat = zooKeeper.exists(HelloConstants.RPCNAME, false);
-        System.out.println(stat);
+        System.out.println("节点状态: " + stat);
         if (stat == null) {
             String path = zooKeeper.create(HelloConstants.RPCNAME, "".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
-            System.out.println(path);
+            System.out.println("节点[" + HelloConstants.RPCNAME + "]不存在, 正在创建临时节点[" + path + "]");
         }
     }
 

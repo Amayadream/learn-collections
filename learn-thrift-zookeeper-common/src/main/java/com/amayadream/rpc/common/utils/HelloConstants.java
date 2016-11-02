@@ -7,6 +7,6 @@ package com.amayadream.rpc.common.utils;
 public class HelloConstants {
 
     public static int sayHelloPort = 9090;
-    public static String RPCNAME = "/rpcNode/sayHello";
+    public static String RPCNAME = "/sayHello";
 
 }

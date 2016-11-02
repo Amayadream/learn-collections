@@ -14,6 +14,8 @@
     <!-- 在这里扫描Controller但是不扫描Service -->
     <context:component-scan base-package="com.amayadream.rpc.client.*" />
 
+    <bean id="sayhellp" class="com.amayadream.rpc.client.StartWatchService"/>
+
     <!-- 开启注解模式 -->
     <mvc:annotation-driven/>
 

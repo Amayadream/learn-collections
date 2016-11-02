@@ -29,7 +29,7 @@ public class StartHelloService implements ApplicationListener {
 
     private void startSayHelloRpc(){
         try {
-            new Thread(new SayHello()).start();;
+            new Thread(new SayHello()).start();
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -14,6 +14,8 @@
     <!-- 在这里扫描Controller但是不扫描Service -->
     <context:component-scan base-package="com.amayadream.rpc.server.*"/>
 
+    <bean id="sayHello" class="com.amayadream.rpc.server.StartHelloService" />
+
     <!-- 开启注解模式 -->
     <mvc:annotation-driven/>
 
