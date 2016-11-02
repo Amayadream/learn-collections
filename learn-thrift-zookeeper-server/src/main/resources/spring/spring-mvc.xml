@@ -14,7 +14,7 @@
     <!-- 在这里扫描Controller但是不扫描Service -->
     <context:component-scan base-package="com.amayadream.rpc.server.*"/>
 
-    <bean id="sayHello" class="com.amayadream.rpc.server.StartHelloService" />
+    <bean id="sayHello" class="com.amayadream.rpc.server.Application" />
 
     <!-- 开启注解模式 -->
     <mvc:annotation-driven/>
@@ -34,7 +34,6 @@
     <mvc:resources location="/" mapping="/**/*.html"/>
     <mvc:resources location="/" mapping="/**/*.js"/>
     <mvc:resources location="/" mapping="/**/*.css"/>
-    <mvc:resources location="/" mapping="/**/*.swf"/>
 
     <!-- 配置文件上传 -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

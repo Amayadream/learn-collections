@@ -1,8 +1,8 @@
-package com.amayadream.rpc.server;
+package com.amayadream.rpc.server.service;
 
 import com.amayadream.rpc.api.thrift.HelloService;
 import com.amayadream.rpc.common.utils.HelloConstants;
-import com.amayadream.rpc.server.impl.HelloServiceImpl;
+import com.amayadream.rpc.server.service.HelloServiceImpl;
 import org.apache.thrift.server.TServer;
 import org.apache.thrift.server.TThreadPoolServer;
 import org.apache.thrift.transport.TServerSocket;
@@ -13,7 +13,7 @@ import org.apache.thrift.transport.TTransportException;
  * @author :  Amayadream
  * @date :  2016.11.01 17:00
  */
-public class SayHello implements Runnable {
+public class HelloServiceStart implements Runnable {
 
     private static boolean breg = false;
 

@@ -1,4 +1,4 @@
-package com.amayadream.rpc.server;
+package com.amayadream.rpc.server.junit;
 
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.KeeperException;

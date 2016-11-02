@@ -1,4 +1,4 @@
-package com.amayadream.rpc.server.impl;
+package com.amayadream.rpc.server.service;
 
 import com.amayadream.rpc.api.thrift.HelloService;
 import com.amayadream.rpc.common.utils.IPUtil;

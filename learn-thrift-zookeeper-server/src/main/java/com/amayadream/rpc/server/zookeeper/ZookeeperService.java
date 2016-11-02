@@ -1,4 +1,4 @@
-package com.amayadream.rpc.server.register;
+package com.amayadream.rpc.server.zookeeper;
 
 import com.amayadream.rpc.common.utils.HelloConstants;
 import com.amayadream.rpc.common.utils.IPUtil;
@@ -11,16 +11,16 @@ import java.util.concurrent.CountDownLatch;
 
 /**
  * @author :  Amayadream
- * @date :  2016.11.01 14:30
+ * @date :  2016.11.02 14:53
  */
-public class RegisterHelloRpc implements Watcher {
+public class ZookeeperService implements Watcher {
 
     private static ZooKeeper zooKeeper = null;
     /** 扇子锁 */
     private static CountDownLatch conDown = new CountDownLatch(1);
 
     public void register() throws IOException {
-        zooKeeper = new ZooKeeper(ZKConstants.connectString, 3000, new RegisterHelloRpc());
+        zooKeeper = new ZooKeeper(ZKConstants.connectString, 3000, new ZookeeperService());
         try {
             conDown.await();
         } catch (InterruptedException e) {
@@ -66,7 +66,7 @@ public class RegisterHelloRpc implements Watcher {
     }
 
     public static void main(String[] args) throws IOException {
-        RegisterHelloRpc rpc = new RegisterHelloRpc();
+        ZookeeperService rpc = new ZookeeperService();
         rpc.register();
     }
 

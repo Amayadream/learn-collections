@@ -10,7 +10,7 @@ import java.io.IOException;
  * @author :  Amayadream
  * @date :  2016.11.01 17:39
  */
-public class StartWatchService implements ApplicationListener {
+public class Application implements ApplicationListener {
 
     @Override
     public void onApplicationEvent(ApplicationEvent event) {

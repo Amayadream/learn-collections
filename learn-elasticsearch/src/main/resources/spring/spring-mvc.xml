@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                         http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
                         http://www.springframework.org/schema/context
                         http://www.springframework.org/schema/context/spring-context-4.0.xsd
                         http://www.springframework.org/schema/mvc
-                        http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
+                        http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <!-- 在这里扫描Controller但是不扫描Service -->
-    <context:component-scan base-package="com.amayadream.rpc.*" />
-
-    <bean id="sayHello" class="com.amayadream.rpc.client.Application"/>
+    <!-- 扫描 -->
+    <context:component-scan base-package="com.amayadream.elasticsearch.*"/>
 
     <!-- 开启注解模式 -->
     <mvc:annotation-driven/>
+
+    <!-- 开启aop注解 -->
+    <aop:aspectj-autoproxy />
 
     <!-- 视图解析器 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -26,7 +27,6 @@
 
     <mvc:resources mapping="/static/**" location="/static/"/>
 
-    <!-- 按照后缀来配置,和文件夹配置结合就比较简单了 -->
     <mvc:resources location="/" mapping="/**/*.html"/>
     <mvc:resources location="/" mapping="/**/*.js"/>
     <mvc:resources location="/" mapping="/**/*.css"/>
