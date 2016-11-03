@@ -1,11 +1,6 @@
-package com.amayadream.elasticsearch.test;
+package com.amayadream.elasticsearch.learn;
 
-import org.elasticsearch.action.delete.DeleteResponse;
 import org.elasticsearch.action.get.GetResponse;
-import org.elasticsearch.action.index.IndexRequest;
-import org.elasticsearch.action.index.IndexResponse;
-import org.elasticsearch.action.update.UpdateRequest;
-import org.elasticsearch.action.update.UpdateResponse;
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.common.transport.InetSocketTransportAddress;
@@ -13,7 +8,6 @@ import org.elasticsearch.xpack.client.PreBuiltXPackTransportClient;
 
 import java.io.IOException;
 import java.net.InetAddress;
-import java.util.Date;
 import java.util.concurrent.ExecutionException;
 
 import static org.elasticsearch.common.xcontent.XContentFactory.jsonBuilder;
@@ -23,6 +17,9 @@ import static org.elasticsearch.common.xcontent.XContentFactory.jsonBuilder;
  * @date :  2016.11.02 20:29
  */
 public class SimpleTest {
+
+
+
 
     public static void main(String[] args) throws IOException, ExecutionException, InterruptedException {
         Settings settings = Settings.builder()
@@ -81,7 +78,7 @@ public class SimpleTest {
 //        System.out.println(response.getResult().getLowercase());
 
 
-        client.close();
+
     }
 
 

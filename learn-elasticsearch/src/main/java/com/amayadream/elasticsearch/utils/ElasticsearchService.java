@@ -1,4 +1,4 @@
-package com.amayadream.elasticsearch;
+package com.amayadream.elasticsearch.utils;
 
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.settings.Settings;
@@ -15,7 +15,7 @@ import java.net.UnknownHostException;
  * @author :  Amayadream
  * @date :  2016.11.03 16:05
  */
-public class Application implements ApplicationListener {
+public class ElasticsearchService implements ApplicationListener {
 
     public static TransportClient client;
 
