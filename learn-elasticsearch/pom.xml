@@ -13,25 +13,43 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring.version>4.3.3.RELEASE</spring.version>
-        <log4j.version>2.5</log4j.version>
+        <log4j.version>2.6</log4j.version>
         <slf4j.version>1.7.21</slf4j.version>
+        <elasticsearch.version>5.0.0</elasticsearch.version>
     </properties>
+    <repositories>
+        <repository>
+            <id>elasticsearch-releases</id>
+            <url>https://artifacts.elastic.co/maven</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
     <dependencies>
         <!-- elasticsearch -->
         <dependency>
             <groupId>org.elasticsearch</groupId>
             <artifactId>elasticsearch</artifactId>
-            <version>5.0.0</version>
+            <version>${elasticsearch.version}</version>
         </dependency>
         <dependency>
             <groupId>org.elasticsearch.client</groupId>
             <artifactId>transport</artifactId>
+            <version>${elasticsearch.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.elasticsearch.client</groupId>
+            <artifactId>x-pack-transport</artifactId>
             <version>5.0.0</version>
         </dependency>
         <!--<dependency>-->
             <!--<groupId>org.elasticsearch.client</groupId>-->
             <!--<artifactId>rest</artifactId>-->
-            <!--<version>5.0.0</version>-->
+            <!--<version>${elasticsearch.version}</version>-->
         <!--</dependency>-->
 
         <!-- Spring Data Mongodb -->

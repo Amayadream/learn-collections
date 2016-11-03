@@ -13,6 +13,8 @@
     <!-- 扫描 -->
     <context:component-scan base-package="com.amayadream.elasticsearch.*"/>
 
+    <bean class="com.amayadream.elasticsearch.Application"/>
+
     <!-- 开启注解模式 -->
     <mvc:annotation-driven/>
 
