@@ -16,6 +16,7 @@
         <module>learn-thrift-zookeeper-common</module>
         <module>learn-spring-data-redis</module>
         <module>learn-elasticsearch</module>
+        <module>learn-mongodb</module>
     </modules>
 
     <build>
