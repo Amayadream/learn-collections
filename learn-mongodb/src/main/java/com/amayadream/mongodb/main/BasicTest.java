@@ -1,6 +1,5 @@
 package com.amayadream.mongodb.main;
 
-import com.mongodb.Block;
 import com.mongodb.client.*;
 import org.bson.Document;
 import org.junit.Test;
@@ -8,10 +7,11 @@ import org.junit.Test;
 import java.util.function.Consumer;
 
 /**
+ * 基础的
  * @author :  Amayadream
- * @date :  2016.11.04 14:38
+ * @date :  2016.11.14 21:22
  */
-public class ClientCollectionTest extends AbstractTest {
+public class BasicTest extends AbstractTest {
 
     /**
      * 查询数据库
@@ -19,7 +19,7 @@ public class ClientCollectionTest extends AbstractTest {
     @Test
     public void mongoClientTest(){
         //1. 查询所有database
-        ListDatabasesIterable<Document> databases = mongoClient.listDatabases();
+        ListDatabasesIterable<Document> databases = client.listDatabases();
         databases.forEach(new Consumer<Document>() {
             @Override
             public void accept(Document document) {
@@ -27,10 +27,10 @@ public class ClientCollectionTest extends AbstractTest {
             }
         });
         //2. 查询特定database
-        MongoDatabase database = mongoClient.getDatabase("learn-mongodb");
+        MongoDatabase database = client.getDatabase("learn-mongodb");
         System.out.println(database.getName());
         //3. 查询所有database名称
-        MongoIterable<String> databaseNames = mongoClient.listDatabaseNames();
+        MongoIterable<String> databaseNames = client.listDatabaseNames();
         databaseNames.forEach(new Consumer<String>() {
             @Override
             public void accept(String s) {
@@ -44,9 +44,9 @@ public class ClientCollectionTest extends AbstractTest {
      */
     @Test
     public void mongoCollectionTest(){
-        mongoDb = mongoClient.getDatabase("clouddriver");
+        db = client.getDatabase("clouddriver");
         //1. 查询所有collection
-        ListCollectionsIterable<Document> collections = mongoDb.listCollections();
+        ListCollectionsIterable<Document> collections = db.listCollections();
         collections.forEach(new Consumer<Document>() {
             @Override
             public void accept(Document document) {
@@ -54,10 +54,10 @@ public class ClientCollectionTest extends AbstractTest {
             }
         });
         //2. 查询特定collection
-        MongoCollection<Document> collection = mongoDb.getCollection("test");
+        MongoCollection<Document> collection = db.getCollection("test");
         System.out.println(collection.count());
         //3. 查询所有collection名称
-        MongoIterable<String> collectionNames = mongoDb.listCollectionNames();
+        MongoIterable<String> collectionNames = db.listCollectionNames();
         collectionNames.forEach(new Consumer<String>() {
             @Override
             public void accept(String s) {

@@ -16,20 +16,20 @@ import java.util.Collections;
  */
 public abstract class AbstractTest {
 
-    protected static MongoClient mongoClient;
-    protected static MongoDatabase mongoDb;
-    protected static MongoCollection<Document> mongoCollection;
+    protected static MongoClient client;
+    protected static MongoDatabase db;
+    protected static MongoCollection<Document> collection;
 
     @Before
     public void before(){
-        mongoClient = new MongoClient(Collections.singletonList(new ServerAddress("localhost", 27017)));
-        mongoDb = mongoClient.getDatabase("learn-mongodb");
-        mongoCollection = mongoDb.getCollection("test");
+        client = new MongoClient(Collections.singletonList(new ServerAddress("localhost", 27017)));
+        db = client.getDatabase("learn-mongodb");
+        collection = db.getCollection("test");
     }
 
     @After
     public void after() {
-        mongoClient.close();
+        client.close();
     }
 
 

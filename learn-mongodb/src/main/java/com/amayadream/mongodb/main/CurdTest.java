@@ -2,16 +2,15 @@ package com.amayadream.mongodb.main;
 
 import com.mongodb.Block;
 import com.mongodb.client.FindIterable;
+import com.mongodb.client.model.Filters;
 import org.bson.Document;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Consumer;
 
 import static com.mongodb.client.model.Filters.*;
-import static com.mongodb.client.model.Sorts.*;
-import static com.mongodb.client.model.Projections.*;
+import static com.mongodb.client.model.Sorts.descending;
 
 /**
  * @author :  Amayadream
@@ -20,32 +19,55 @@ import static com.mongodb.client.model.Projections.*;
 public class CurdTest extends AbstractTest {
 
     /**
-     * 插入操作
+     * 单条插入
      */
     @Test
-    public void insertTest(){
-        //1. 单条插入
-        Document document = new Document()
-                .append("name", "Amayadream")
-                .append("like", "coding")
-//                .append("_id", "123")
-                ;
-        mongoCollection.insertOne(document);
-        System.out.println(mongoCollection.count());
+    public void singleInsert(){
+        Document doc = new Document("userId", "hello")
+                .append("like", "coding");
+        System.out.println("单条插入前, 集合记录数为: " + collection.count());
+        collection.insertOne(doc);
+        System.out.println("单条插入后, 集合记录数为: " + collection.count());
+    }
 
-        //2. 多条插入
-        List<Document> documents = new ArrayList<Document>();
-        for (int i = 0; i < 100; i++) {
-            documents.add(new Document("i", i));
+    /**
+     * 多条插入
+     */
+    @Test
+    public void mutiInsert(){
+        List<Document> docs = new ArrayList<Document>();
+        for (int i = 0; i < 100; i ++) {
+            docs.add(new Document("i", i));
         }
-        mongoCollection.insertMany(documents);
-        System.out.println(mongoCollection.count());
+        System.out.println("多条插入前, 集合记录数为: " + collection.count());
+        collection.insertMany(docs);
+        System.out.println("多条插入后, 集合记录数为: " + collection.count());
+    }
+
+    @Test
+    public void update() {
+
+    }
+
+    /**
+     * 查询并替换
+     */
+    @Test
+    public void findAndReplace(){
+        Document doc = new Document("userId", "Amayadream");
+        collection.insertOne(doc);
+        doc.append("userId", "asd").append("password", "123");
+        collection.replaceOne(Filters.eq("_id", doc.get("_id")), doc);
+        List<Document> docs = collection.find().into(new ArrayList<Document>());
+        for (Document document : docs) {
+            System.out.println(document.toJson());
+        }
     }
 
     @Test
     public void queryTest(){
         //1. 查询全部
-        FindIterable<Document> documents = mongoCollection.find();
+        FindIterable<Document> documents = collection.find();
         documents.forEach(new Block<Document>() {
             @Override
             public void apply(Document document) {
@@ -53,7 +75,7 @@ public class CurdTest extends AbstractTest {
             }
         });
         //2. 条件查询
-        FindIterable<Document> document = mongoCollection.find(eq("name", "Amayadream"));
+        FindIterable<Document> document = collection.find(eq("name", "Amayadream"));
         document.forEach(new Block<Document>() {
             @Override
             public void apply(Document document) {
@@ -61,9 +83,9 @@ public class CurdTest extends AbstractTest {
             }
         });
         //3. 单条查询
-        Document doc = mongoCollection.find(eq("name", "Amayadreams")).first();
+        Document doc = collection.find(eq("name", "Amayadreams")).first();
         //4. 组合查询
-        FindIterable<Document> documents1 = mongoCollection.find(and(gt("i", 50), lte("i", 60)));
+        FindIterable<Document> documents1 = collection.find(and(gt("i", 50), lte("i", 60)));
         documents1.forEach(new Block<Document>() {
             @Override
             public void apply(Document document) {
@@ -71,7 +93,7 @@ public class CurdTest extends AbstractTest {
             }
         });
         //5. 排序
-        FindIterable<Document> docs = mongoCollection.find(exists("i")).sort(descending("i"));
+        FindIterable<Document> docs = collection.find(exists("i")).sort(descending("i"));
         docs.forEach(new Block<Document>() {
             @Override
             public void apply(Document document) {
