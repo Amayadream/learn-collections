@@ -1,4 +1,4 @@
-package com.amayadream.mongodb.main;
+package com.amayadream.mongodb.sync;
 
 import com.mongodb.MongoClient;
 import com.mongodb.ServerAddress;
@@ -11,6 +11,7 @@ import org.junit.Before;
 import java.util.Collections;
 
 /**
+ * 基础抽象类, 负责实例化client, db, collection以及执行结束后关闭client
  * @author :  Amayadream
  * @date :  2016.11.04 14:44
  */

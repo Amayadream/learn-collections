@@ -1,12 +1,16 @@
-package com.amayadream.mongodb.main;
+package com.amayadream.mongodb.sync;
 
 import com.mongodb.Block;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Updates;
+import com.mongodb.client.result.DeleteResult;
+import com.mongodb.client.result.UpdateResult;
 import org.bson.Document;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static com.mongodb.client.model.Filters.*;
@@ -44,9 +48,28 @@ public class CurdTest extends AbstractTest {
         System.out.println("多条插入后, 集合记录数为: " + collection.count());
     }
 
+    /**
+     * 更新操作
+     */
     @Test
     public void update() {
+        UpdateResult r = collection.updateOne(Filters.eq("userId", "hello"), Updates.set("userId", "Amayadream"));
+        System.out.println(r.getModifiedCount());
+        UpdateResult rs = collection.updateOne(Filters.eq("userId", "Amayadream"), Updates.combine(Arrays.asList(Updates.set("userId", "asd"), Updates.set("like", "sleep"))));
+        System.out.println(rs.getModifiedCount());
+        UpdateResult rr = collection.updateMany(Filters.gt("i", 50), Updates.set("cooking", true));
+        System.out.println(rr.getModifiedCount());
+    }
 
+    /**
+     * 删除操作
+     */
+    @Test
+    public void singleDelete(){
+        DeleteResult result = collection.deleteOne(Filters.lt("i", 20));
+        System.out.println("单条删除, 删除数量: " + result.getDeletedCount());
+        DeleteResult r = collection.deleteMany(Filters.lt("i", 20));
+        System.out.println("多条删除, 删除数量: " + r.getDeletedCount());
     }
 
     /**
