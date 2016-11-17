@@ -88,6 +88,18 @@ public class CurdTest extends AbstractTest {
     }
 
     @Test
+    public void pagination(){
+        long i = collection.count();
+        System.out.println("总数: " + i);
+        collection.find().limit(20).skip(10).forEach(new Block<Document>() {
+            @Override
+            public void apply(Document document) {
+                System.out.println(document.toJson());
+            }
+        });
+    }
+
+    @Test
     public void queryTest(){
         //1. 查询全部
         FindIterable<Document> documents = collection.find();
@@ -123,8 +135,6 @@ public class CurdTest extends AbstractTest {
                 System.out.println(document.toJson());
             }
         });
-        //6. 选择字段
-
     }
 
 
