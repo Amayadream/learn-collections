@@ -17,6 +17,8 @@
         <module>learn-spring-data-redis</module>
         <module>learn-elasticsearch</module>
         <module>learn-mongodb</module>
+        <module>learn-spring-quartz</module>
+        <module>learn-httpclient</module>
     </modules>
 
     <build>
