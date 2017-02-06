@@ -20,6 +20,7 @@
         <module>learn-spring-quartz</module>
         <module>learn-httpclient</module>
         <module>learn-ehcache</module>
+        <module>learn-netty</module>
     </modules>
 
     <build>
