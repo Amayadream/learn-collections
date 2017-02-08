@@ -1,4 +1,4 @@
-package com.amayadream.netty.chapter1.server;
+package com.amayadream.netty.learn.chapter1.server;
 
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;

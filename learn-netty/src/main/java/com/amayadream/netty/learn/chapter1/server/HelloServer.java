@@ -1,4 +1,4 @@
-package com.amayadream.netty.chapter1.server;
+package com.amayadream.netty.learn.chapter1.server;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;

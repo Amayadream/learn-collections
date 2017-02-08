@@ -1,4 +1,4 @@
-package com.amayadream.netty.chapter3.server;
+package com.amayadream.netty.learn.chapter3.server;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelFuture;

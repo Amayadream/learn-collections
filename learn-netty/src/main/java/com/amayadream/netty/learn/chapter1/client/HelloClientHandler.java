@@ -1,4 +1,4 @@
-package com.amayadream.netty.chapter1.client;
+package com.amayadream.netty.learn.chapter1.client;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
