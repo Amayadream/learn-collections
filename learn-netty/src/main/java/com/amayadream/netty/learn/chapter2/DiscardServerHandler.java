@@ -1,5 +1,6 @@
 package com.amayadream.netty.learn.chapter2;
 
+import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
@@ -12,7 +13,7 @@ public class DiscardServerHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         //1. 默默地丢弃收到的数据
-        //((ByteBuf) msg).release();
+//        ((ByteBuf) msg).release();
 
 //        ByteBuf in = (ByteBuf) msg;
 //        try {

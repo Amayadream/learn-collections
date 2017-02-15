@@ -1,4 +1,4 @@
-package com.amayadream.netty.demo.webpush;
+package com.amayadream.netty.demo.webchat;
 
 import com.corundumstudio.socketio.AckRequest;
 import com.corundumstudio.socketio.SocketIOClient;

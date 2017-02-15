@@ -1,4 +1,4 @@
-package com.amayadream.netty.demo.webpush;
+package com.amayadream.netty.demo.webchat;
 
 /**
  * 消息实体
