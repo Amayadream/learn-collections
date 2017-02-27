@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.amayadream.pagehelper.core.dao.IUserDao">
+    <resultMap id="BaseResultMap" type="com.amayadream.pagehelper.core.model.User">
+        <id column="userId" property="userId" jdbcType="VARCHAR"/>
+        <result column="realName" property="realName" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="list" resultMap="BaseResultMap">
+        SELECT userId, realName FROM tab_user
+    </select>
+
+    <insert id="save" parameterType="User">
+        INSERT INTO tab_user (userId, realName) VALUES (#{userId, jdbcType=VARCHAR}, #{realName, jdbcType=VARCHAR})
+    </insert>
+
+</mapper>

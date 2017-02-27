@@ -21,6 +21,7 @@
         <module>learn-httpclient</module>
         <module>learn-ehcache</module>
         <module>learn-netty</module>
+        <module>learn-pagehelper</module>
     </modules>
 
     <build>
