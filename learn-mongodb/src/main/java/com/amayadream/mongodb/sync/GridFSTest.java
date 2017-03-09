@@ -23,7 +23,6 @@ public class GridFSTest extends AbstractTest {
 
     /**
      * 上传文件
-     * @throws FileNotFoundException
      */
     @Test
     public void test() throws FileNotFoundException {
