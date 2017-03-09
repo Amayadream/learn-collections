@@ -1,4 +1,4 @@
-package com.amayadream.quartz;
+package com.amayadream.quartz.exec;
 
 import com.amayadream.quartz.model.ScheduleJob;
 import org.quartz.Job;
@@ -6,6 +6,7 @@ import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 
 /**
+ * Job工厂类
  * @author :  Amayadream
  * @date :  2017.03.09 14:05
  */
