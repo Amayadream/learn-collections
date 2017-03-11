@@ -37,4 +37,6 @@
 
     <bean id="schedulerFactoryBean" class="org.springframework.scheduling.quartz.SchedulerFactoryBean" />
 
+    <bean id="springStartListener" class="com.amayadream.quartz.SpringStartListener"/>
+
 </beans>
