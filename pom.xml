@@ -22,6 +22,7 @@
         <module>learn-ehcache</module>
         <module>learn-netty</module>
         <module>learn-pagehelper</module>
+        <module>learn-spring-data-jpa</module>
     </modules>
 
     <build>
