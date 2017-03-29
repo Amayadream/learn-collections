@@ -23,6 +23,7 @@
         <module>learn-netty</module>
         <module>learn-pagehelper</module>
         <module>learn-spring-data-jpa</module>
+        <module>learn-interview</module>
     </modules>
 
     <build>
